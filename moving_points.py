@@ -23,6 +23,12 @@ points(pos=original_points)
 # now we are gonna make another plot the moving points
 moving_pts = points(pos=original_points, color=color.orange)
 
+# now change the points we are moving (i.e. you would do lorentz contraction)
+for pt in moving_pts.pos:
+    # here we are changing x to x + y,
+    pt[0] = pt[0] + pt[1]
+    # pt[0] refers to x, pt[1] to y, and pt[2] to z
+
 # we dont want the whole scene to move, if this is not set, it will try to keep it in the middle
 scene.autoscale=False
 
@@ -30,3 +36,5 @@ scene.autoscale=False
 for _ in range(100000):
     moving_pts.pos += v*dt
     rate(500)
+
+
