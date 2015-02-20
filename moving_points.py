@@ -12,6 +12,7 @@ for i in range(10):
     z = 0
     original_points.append(vector(x, y, z))
 
+points(pos=original_points)
 
 pts = points(pos=original_points)
 
