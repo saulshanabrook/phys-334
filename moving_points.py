@@ -16,6 +16,8 @@ points(pos=original_points)
 
 pts = points(pos=original_points)
 
-for _ in range(10):
+scene.autoscale=False
+
+for _ in range(100000):
     pts.pos += v*dt
     rate(500)
