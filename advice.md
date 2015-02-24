@@ -1,6 +1,6 @@
 # Advice
 I know you aren't taking a programming class, but since you seem to be doing a bit of programming
-I figured it might be helpful to put up some guidance on how to not make piles of shit code
+I figured it might be helpful to put up some guidance on how to not code
 that you will hate writing and I will hate reading and that will make kittens cry.
 
 
