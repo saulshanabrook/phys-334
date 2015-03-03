@@ -20,17 +20,75 @@ One great resource in the [Python Guide on Code Style:](http://docs.python-guide
 
 > Moreover, when a veteran Python developer (a Pythonista) points to portions of code and says they are not “Pythonic”, it usually means that these lines of code do not follow the common guidelines and fail to express the intent in what is considered the best (hear: most readable) way.
 
-That is a great reference page to look back on. I am now gonna highlight some particular areas which
-I think are important.
+
+Another that is applicable is the [Google Python Style Guide](https://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
 
 ## Basic Formatting
-Your code show be formatted to follow [PEP8](https://www.python.org/dev/peps/pep-0008/). The only one
-that is variable is the max line size. While having too long lines can be sign that there is too
-much complexity, it is also sometimes painful to break them.
+
+Your code show be formatted to follow [PEP8](https://www.python.org/dev/peps/pep-0008/).
 
 If you wanna test and see if your code is following all the standards, you can
 use [this online PEP8 checker](http://pep8online.com/).
 
+Keeping your code properly formatted is like checking your paper for spelling/grammatical mistakes. I can still read your code if you format it badly, but it looks sloppy and unprofessional.
+
+Also, it makes it harder to read if everyone's style is different. That is why python has PEP8, to standardize all coding styles.
+
+### Comments
+In Python, comments describing what a module (file) or function are called **docstrings**. They are written with triple quotes, like this:
+
+```python
+def doppler_shift(v):
+    '''
+    Given a velocity, computes the relative doppler shift
+    and return as an RGB tuple.
+    
+    For a positive velocity it will be all red, and all blue for a 
+    negative one.
+    '''
+    if v > 0:
+        return (1, 0, 0)
+    return (0, 0, 1)
+```
+
+All functions should have docstrings. Your script should also have a
+docstring. You can think of this sort of like an intro/thesis for an essay. If I read the docstring at the top of your script, it should
+say everything the script hope to do. Like this:
+
+```python
+'''
+This module prints out example velocity and their resaulting
+doppler shifts, to show how the change in color is dependent
+on the velocity.
+'''
+
+def doppler_shift(v):
+    '''
+    Given a velocity, computes the relative doppler shift
+    and return as an RGB tuple.
+    
+    For a positive velocity it will be all red, and all blue for a 
+    negative one.
+    '''
+    if v > 0:
+        return (1, 0, 0)
+    return (0, 0, 1)
+
+def log_doppler_shift(v):
+    '''
+    Will log the input velocity along it's doppler shifted color
+    '''
+    color = doppler_shift(v)
+    print  'With velocity {}, the red is {} and the blue is {}'.format(
+        v,
+        color[0],
+        color[1]
+    )
+
+log_doppler_shift(10)
+log_doppler_shift(-1)
+log_doppler_shift(0)
+```
 
 ## Variable Names
 Some people say that choosing what to name things is the hardest part of writing a program.
@@ -52,6 +110,13 @@ velocity, create a function that takes in velocity and return the color.
 
 ```python
 def doppler_shift(v):
+    '''
+    Given a velocity, computes the relative doppler shift
+    and return as an RGB tuple.
+    
+    For a positive velocity it will be all red, and all blue for a 
+    negative one.
+    '''
     if v > 0:
         return (1, 0, 0)
     return (0, 0, 1)
