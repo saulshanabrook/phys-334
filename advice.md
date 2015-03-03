@@ -129,4 +129,40 @@ but none of you have that problem. All the code I have seen has been basically o
 fine for testing stuff out. But you will actually be able to increase your productivity if you start using
 functions, as well as make it easier for others to follow what you are doing.
 
+# Structure
+The basic idea is that you wanna create a bunch of functions that are all simple enough to understand on their
+own. If you are doing something complicated inside a function, that can be broken out into a smaller funciton,
+do that, even if you are only going to call it once.
 
+Avoid excessive nesting with for loops/if statements. It get's hard to read and likely can be refactored.
+
+# Lists/Vectors
+In Python, iterating through a list is much easier than in some other languages.
+
+```python
+dots = [1, 3, 5, 6]
+for dot in dots:
+    print dot
+```
+
+You can also do the same for a list of vectors
+
+```python
+points = [vector(1, 2, 3), vector(4, 5, 6)]
+for point in points:
+    # point[i] will return the ith item in the vector, starting from 0
+    print point[0]
+```
+
+You can also "unpack" a list/vector by assigning it to multiple values
+
+```python
+v = vector(1, 2, 3)
+x, y, z = v
+
+# or can also do this in a list of vectors
+points = [vector(1, 2, 3), vector(4, 5, 6)]
+for point in points:
+    x, y, z = point
+    print x # same as point[0]
+```
